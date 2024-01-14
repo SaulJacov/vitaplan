@@ -1,0 +1,8 @@
+create database vitaplan;
+use vitaplan;
+create table paciente(CURP varchar(50) not null, constraint pk_paciente PRIMARY KEY (CURP), Nombre varchar(50) not null, Apaterno varchar(50) not null, Amaterno varchar(50) not null, Email varchar(50) not null, Telefono varchar(20) not null, Contrasena varchar(50) not null, Membresia int not null);
+insert into paciente values('HETC001212HMCRRRA6', 'Carlos Adrian', 'Hernandez', 'Torres', 'hernandeztorresca12@gmail.com', 5549649017, 'escomipn', 1);
+create table nutriologo(Matricula varchar(50) not null, constraint pk_nutriologo PRIMARY KEY (Matricula), Nombre varchar(50) not null, Apaterno varchar(50) not null, Amaterno varchar(50) not null, Email varchar(50) not null, Telefono varchar(20) not null, Especialidad varchar(50) not null, Ubicacion varchar(50) not null, Contrasena varchar(50) not null);
+insert into nutriologo values('010102020303', 'Juan', 'Camaney', 'Perez', 'juancamaney1@hotmail.com', '5511223344', 'Nutriologo General', 'Ecatepec', 'juanitoperez1');
+create table juanpacientes(id int not null, constraint pk_juanpacientes PRIMARY KEY (id), CURP varchar(50) not null, constraint fk_juanpacientes FOREIGN KEY (CURP) references paciente(CURP), uconsulta date, pconsulta date);
+insert into juanpacientes values(1, 'HETC001212HMCRRRA6', "1999-01-01", "2024-01-09");
