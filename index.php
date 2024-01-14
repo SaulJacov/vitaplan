@@ -47,9 +47,6 @@ if (!isset($_SESSION['usuario_id'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="blog2.html">BLOG</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="nutriologo.php">NUTRIOLOGO</a>
-                    </li>
                 </ul>
                 <div class="col">
                 
