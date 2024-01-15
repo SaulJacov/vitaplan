@@ -1,8 +1,19 @@
+<?php
+// Inicia la sesión
+session_start();
+
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['usuario_id'])) {
+    // Si no está autenticado, redirige al formulario de inicio de sesión
+    header("Location: selec_login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>VitaPlan | ConoceMas</title>
+        <title>VitaPlan | Contacto</title>
         <link rel="icon" href="img/LogoP.jpg" type="image/jpg" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -18,67 +29,67 @@
     </head>
     <body style="background-color: #FFFFFF">
         <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top">
-            <a class="navbar-brand" href="index.html"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
+            <a class="navbar-brand" href="indexN.php"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #FFFFFF">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
-                    <li class="nav-item-2 active">
-                        <a class="nav-link" href="index.html">INICIO</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="precio.php">MEMBRESÍA</a>
                     </li>
                 </ul>
                 <div class="col">
-                
                 </div>
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="selec_login.html"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">INICIAR SESIÓN</a>
-                        </li>
-                        <h2>|</h2>
-                        <li class="nav-item active">
-                          <a class="nav-link" href="registro.html">REGISTRARSE</a>
+                    <li class="nav-item active">
+                          <a class="nav-link" href="nutriologo.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
+                        </li>    
+                    <li class="nav-item active">
+                          <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
                         </li>
                     </ul>
                 </span>
             </div>
         </nav>
         
-		<center>
-            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">CONOCE MÁS</h1><br>
-            
+        <center>
+            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">CONTACTO</h1><br>
+            <h6 style="color: black; font-size: 25px;">Encuéntranos en nuestras redes sociales</h6>
             <div class="contenedor-seccion">
                 <div class="columna">
-					<img style="height: 12vw;" src="img/conoce/im2.jpg">
-                    <div class="cuadro-con-texto dos">
-                        <p style="font-weight: bold;">MISIÓN</p>
-                        <p style="font-size: 17px;"> Nuestra misión es satisfacer la creciente necesidad de los nutriólogos con una herramienta tecnológica integral y especializada que optimice la creación, adaptación y seguimiento efectivo de planes alimenticios personalizados para sus pacientes. </p>                      
-                    </div>
-                </div>               
-				<div class="columna">
-					<img style="height: 12vw;" src="img/conoce/im1.jpg"> 
-                    <div class="cuadro-con-texto dos">
-                        <p style="font-weight: bold;">VISIÓN</p>
-                        <p style="font-size: 13px;"> Nos vemos como la principal plataforma tecnológica para nutriólogos, reconocida por nuestra contribución significativa al campo de la nutrición y la salud. En 5 años, aspiramos a ser la elección predilecta de los profesionales de la nutrición, siendo reconocidos por la excelencia de nuestra página web. Nos esforzamos por continuar innovando y adaptándonos a las necesidades cambiantes del sector, expandiendo nuestro alcance global y estableciendo alianzas estratégicas para ofrecer una solución aún más completa y efectiva.</p>                                        
-                    </div>                       
+                    <a  style="color: black;" href="https://es-la.facebook.com/" target="_blank" class="social_link">
+                        <i class="bx bxl-facebook-circle social_icon"><br><h4 style="color:black;">VitaPlan Oficial</h4></i>
+                    </a><br><br>
+                    <a  style="color: black;" href="https://www.instagram.com/" target="_blank" class="social_link">
+                        <i class="bx bxl-instagram social_icon"><br><h4 style="color:black;">VitaPlan mx</h4></i>    
+                    </a>
+                    <br><br>
+                    <a  style="color: black;" href="https://es-la.facebook.com/" target="_blank" class="social_link">
+                        <i class="bx bxl-facebook-circle social_icon"><br><h4 style="color:black;">VitaPlan Oficial</h4></i>    
+                    </a>
                 </div>
-				<div class="columna columna-derecha">
-                    <div class="cuadro-con-texto d">
-                        <p style="font-weight: bold;">SERVICIOS</p>
-						<img style="height: 7vw;" src="img/conoce/im3.jpg">	
-						<p style="font-size: 17px;"> Blog de Nutrición </p>		
-						<img style="height: 7vw;" src="img/conoce/im4.jpg">	
-						<p style="font-size: 17px;"> Asesoramiento Nutricional </p>		
-						<img style="height: 7vw;" src="img/conoce/im5.jpg">	
-						<p style="font-size: 17px;"> Comunidad en Líneaal </p>		
-                    </div>                       
+                <div class="columna">
+                    <a  style="color: black;" href="https://twitter.com/?lang=es" target="_blank" class="social_link">
+                        <i class="bx bxl-twitter social_icon"><br><h4 style="color:black;">Vita_Plan mexico</h4></i>
+                    </a><br><br>
+                    <a  style="color: black;" href="https://mail.google.com/mail" target="_blank" class="social_link">
+                        <i class="bx bxl-gmail social_icon"><br><h4 style="color:black;">contacto@vitaplan.com.mx</h4></i>    
+                    </a>
+                    <br><br>
+                    <a  style="color: black;" href="https://es-la.facebook.com/" target="_blank" class="social_link">
+                        <i class="bx bxl-facebook-circle social_icon"><br><h4 style="color:black;">VitaPlan Oficial</h4></i>    
+                    </a>      
                 </div>
             </div>
             <div class="footer">

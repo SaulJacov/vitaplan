@@ -1,3 +1,14 @@
+<?php
+// Inicia la sesión
+session_start();
+
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['usuario_id'])) {
+    // Si no está autenticado, redirige al formulario de inicio de sesión
+    header("Location: selec_login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,20 +29,23 @@
     </head>
     <body style="background-color: #FFFFFF">
         <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top">
-            <a class="navbar-brand" href="index.html"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
+            <a class="navbar-brand" href="indexN.php"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #FFFFFF">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
-                    <li class="nav-item-2 active">
-                        <a class="nav-link" href="index.html">INICIO</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="precio.php">MEMBRESÍA</a>
                     </li>
                 </ul>
                 <div class="col">
@@ -39,12 +53,11 @@
                 </div>
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="selec_login.html"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">INICIAR SESIÓN</a>
-                        </li>
-                        <h2>|</h2>
-                        <li class="nav-item active">
-                          <a class="nav-link" href="registro.html">REGISTRARSE</a>
+                    <li class="nav-item active">
+                          <a class="nav-link" href="nutriologo.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
+                        </li>    
+                    <li class="nav-item active">
+                          <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
                         </li>
                     </ul>
                 </span>
