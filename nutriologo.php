@@ -126,6 +126,9 @@ $nutriologo = $_SESSION['usuario_nombre'];
 
         <!-- Puedes agregar -->
 					</div>
+                    <div>
+                    <a href="agendar_citas.php" class="btnL">AGENDAR CITAS</a>
+                    </div>
                 </div>
             </div>
 			<br><br><br>
