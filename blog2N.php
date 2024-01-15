@@ -1,8 +1,19 @@
+<?php
+// Inicia la sesión
+session_start();
+
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['usuario_id'])) {
+    // Si no está autenticado, redirige al formulario de inicio de sesión
+    header("Location: selec_login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>VitaPlan | ConoceMas</title>
+        <title>VitaPlan | Blog</title>
         <link rel="icon" href="img/LogoP.jpg" type="image/jpg" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -24,14 +35,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
-                    <li class="nav-item-2 active">
-                        <a class="nav-link" href="index.html">INICIO</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="precio.php">MEMBRESÍA</a>
                     </li>
                 </ul>
                 <div class="col">
@@ -39,12 +53,11 @@
                 </div>
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="selec_login.html"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">INICIAR SESIÓN</a>
-                        </li>
-                        <h2>|</h2>
-                        <li class="nav-item active">
-                          <a class="nav-link" href="registro.html">REGISTRARSE</a>
+                    <li class="nav-item active">
+                          <a class="nav-link" href="nutriologo.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
+                        </li>    
+                    <li class="nav-item active">
+                          <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
                         </li>
                     </ul>
                 </span>
@@ -52,32 +65,42 @@
         </nav>
         
 		<center>
-            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">CONOCE MÁS</h1><br>
+            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">BLOG</h1><br>
             
             <div class="contenedor-seccion">
                 <div class="columna">
-					<img style="height: 12vw;" src="img/conoce/im2.jpg">
+					<img style="height: 12vw;" src="img/blog2/im1.jpg">
                     <div class="cuadro-con-texto dos">
-                        <p style="font-weight: bold;">MISIÓN</p>
-                        <p style="font-size: 17px;"> Nuestra misión es satisfacer la creciente necesidad de los nutriólogos con una herramienta tecnológica integral y especializada que optimice la creación, adaptación y seguimiento efectivo de planes alimenticios personalizados para sus pacientes. </p>                      
+                        <p style="font-weight: bold;">Alimentos saludables</p>
+                        <p style="font-size: 17px;"> Comer de manera saludable es fundamental para mantener un estilo de vida equilibrado. Incluye variedad de frutas, verduras, granos enteros y proteínas magras en tu dieta diaria. Recuerda beber suficiente agua y moderar el consumo de azúcares y grasas. ¡Tu cuerpo te lo agradecerá! </p>                      
                     </div>
                 </div>               
 				<div class="columna">
-					<img style="height: 12vw;" src="img/conoce/im1.jpg"> 
+					<img style="height: 12vw;" src="img/blog2/im2.jpg"> 
                     <div class="cuadro-con-texto dos">
-                        <p style="font-weight: bold;">VISIÓN</p>
-                        <p style="font-size: 13px;"> Nos vemos como la principal plataforma tecnológica para nutriólogos, reconocida por nuestra contribución significativa al campo de la nutrición y la salud. En 5 años, aspiramos a ser la elección predilecta de los profesionales de la nutrición, siendo reconocidos por la excelencia de nuestra página web. Nos esforzamos por continuar innovando y adaptándonos a las necesidades cambiantes del sector, expandiendo nuestro alcance global y estableciendo alianzas estratégicas para ofrecer una solución aún más completa y efectiva.</p>                                        
+                        <p style="font-weight: bold;">Informate</p>
+                        <p style="font-size: 17px;"> Recuerda que una dieta balanceada es clave para tu bienestar. Prioriza alimentos frescos, limita los ultraprocesados y disfruta de comidas coloridas y nutritivas. Tu cuerpo y mente se beneficiarán con hábitos alimenticios saludables. ¡Adelante hacia un estilo de vida más saludable!</p>                                          
                     </div>                       
                 </div>
-				<div class="columna columna-derecha">
-                    <div class="cuadro-con-texto d">
-                        <p style="font-weight: bold;">SERVICIOS</p>
-						<img style="height: 7vw;" src="img/conoce/im3.jpg">	
-						<p style="font-size: 17px;"> Blog de Nutrición </p>		
-						<img style="height: 7vw;" src="img/conoce/im4.jpg">	
-						<p style="font-size: 17px;"> Asesoramiento Nutricional </p>		
-						<img style="height: 7vw;" src="img/conoce/im5.jpg">	
-						<p style="font-size: 17px;"> Comunidad en Líneaal </p>		
+				<div class="columna">
+                    <div class="cuadro-con-texto uno">
+                        <p style="font-weight: bold;">Dudas generales</p>
+						<p style="font-size: 17px;">
+						
+						Pregunta 1     
+						<br> 
+						¿Cuál es su enfoque respecto a dietas vegetarianas o veganas?
+						<br> <br>
+						Pregunta 2    
+						<br>
+						¿Qué servicios ofrecen?
+						<br> <br>
+						Pregunta 3   
+						<br>
+						¿Cómo manejar las alergias alimentarias o intolerancias? </p> 
+						<br> <br>
+
+                                      
                     </div>                       
                 </div>
             </div>
