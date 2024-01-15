@@ -73,7 +73,7 @@ if (!isset($_SESSION['usuario_id'])) {
                         <p>VitaPlan Gratis</p>
                         <p style="font-weight: bold;">GRATIS</p>
                         <img style="height: 12vw;" src="img/precio/1.png">
-                        <a href="metodoP.html" class="boton2">CONTRATAR</a>
+                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
                     </div>
                 </div>
                 <div class="columna">
@@ -81,7 +81,7 @@ if (!isset($_SESSION['usuario_id'])) {
                         <p>VitaPlan Estandar</p>
                         <p style="font-weight: bold;">$100.00 MXN/mes</p>
                         <img style="height: 12vw;" src="img/precio/2.png">
-                        <a href="metodoP.html" class="boton2">CONTRATAR</a>
+                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
                     </div>                       
                 </div>
                 <div class="columna">
@@ -89,7 +89,7 @@ if (!isset($_SESSION['usuario_id'])) {
                         <p>VitaPlan Premium</p>
                         <p style="font-weight: bold;">$200.00 MXN/mes</p>
                         <img style="height: 12vw;" src="img/precio/3.png">
-                        <a href="metodoP.html" class="boton2">CONTRATAR</a>
+                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
                     </div>                       
                 </div>
             </div>
