@@ -1,10 +1,9 @@
 <?php
 session_start();
 require 'conexion_database.php';
-$tipo = $_POST['tipo'];
 $email = $_POST['email'];
 $contraseña = $_POST['contraseña'];
-$sql = "SELECT * FROM $tipo WHERE email = '$email' AND contraseña = '$contraseña'";
+$sql = "SELECT * FROM nutriologos WHERE email = '$email' AND contraseña = '$contraseña'";
 
 $result = $conn->query($sql);
 

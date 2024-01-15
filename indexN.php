@@ -5,7 +5,7 @@ session_start();
 // Verifica si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
     // Si no está autenticado, redirige al formulario de inicio de sesión
-    header("Location: login.html");
+    header("Location: selec_login.html");
     exit();
 }
 ?>
