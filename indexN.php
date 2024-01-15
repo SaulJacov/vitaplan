@@ -38,9 +38,6 @@ if (!isset($_SESSION['usuario_id'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="indexN.html">INICIO</a>
                     </li>
-                    <li class="nav-item-2 active">
-                        <a class="nav-link" href="precio.html">PRECIO</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contacto.html">CONTACTO</a>
                     </li>
