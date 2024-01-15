@@ -1,3 +1,16 @@
+<?php
+// Inicia la sesión
+session_start();
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['usuario_id'])) {
+    // Si no está autenticado, redirige al formulario de inicio de sesión
+    header("Location: login.html");
+    exit();
+}
+    require 'conexion_database.php';
+$paciente = $_SESSION['usuario_nombre'];
+$email = $_SESSION['usuario_email'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +40,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">INICIO</a>
                     </li>
-                    <li class="nav-item-2 active">
-                        <a class="nav-link" href="nutriologo.html">NUTRIÓLOGO<span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contacto.html">CONTACTO</a>
                     </li>
@@ -43,7 +53,7 @@
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
                         <li class="nav-item active">
-                          <a class="nav-link" href="paciente.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">USUARIO</a>
+                          <a class="nav-link" href="paciente.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $paciente?></a>
                         </li>
                         <li class="nav-item active">
                           <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
@@ -62,31 +72,24 @@
 				</div>
 				<div class="columna">
 					<form>
-						<label for="ema" style="color: black; font-size: 20px">Email</label>
-						<span id="sp" class="required">*</span>
-						<input type="text" id="ema" name="email" required placeholder="Escribe tu email">
+						<label for="ema" style="color: black; font-size: 20px"><?php echo $email ?></label>
 						<br>
-						<label for="nombre2" style="color: black; font-size: 20px">Nombre(s)</label>
-						<span style="margin-right: 45%;" class="required">*</span>
-						<input type="text" id="nombre2" name="nombre" required placeholder="Escribe tu(s) nombre(s)">
+						<label for="nombre2" style="color: black; font-size: 20px"><?php echo $paciente ?></label>
 						<br>
-						<label for="apP" style="color: black; font-size: 20px">Apellido Paterno</label>
-						<span style="margin-right: 35%;" class="required">*</span>
-						<input type="text" id="apP" name="apellidoP" required placeholder="Escribe tu apellido paterno">
-					</form>
+						</form>
 				</div>
                 <div class="columna">
                     <div class="cuadro-con-texto uno">
                         <p style="font-weight: bold;">HISTORIAL MEDICO</p>
                         <img style="height: 12vw;" src="img/datosPaciente/im1.png"><BR><BR>
-                        <a href="histoM.html" class="boton2">VISUALIZAR</a>
+                        <a href="historialP.php" class="boton2">VISUALIZAR</a>
                     </div>
                 </div>
                 <div class="columna">
                     <div class="cuadro-con-texto dos">
                         <p style="font-weight: bold;">SEGUIMIENTO DE CONSULTAS</p>
                         <img style="height: 12vw;" src="img/datosPaciente/im2.jpg"><BR><BR>
-                        <a href="seguimC.html" class="boton2">VISUALIZAR</a>
+                        <a href="seguimC.php" class="boton2">VISUALIZAR</a>
                     </div>                       
                 </div>
             </div>
