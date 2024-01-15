@@ -106,27 +106,40 @@ $nutriologo = $_SESSION['usuario_nombre'];
                 </div>
                 <div class="columna">
 					<h1>Agenda</h1><br>
-                    <div class="contenedor-agenda">
-						<div class="evento">
-							<div class="fecha">2024-01-10</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
+                    <div class="cuadro-con-texto dos">
+                    <div class="columna-agenda">
+                            <?php
+                            $consulta = "SELECT * FROM citas WHERE nutriologo = '$nutriologo'";
+                            $resultado = $conn->query($consulta);
+                            if ($resultado->num_rows > 0) {
+                                echo '<table border="1">';
+                                echo '<tr>';
+                                echo '<th>id cita</th>';
+                                echo '<th>Fecha</th>';
+                                echo '<th>Hora</th>';
+                                echo '<th>Nombre</th>';
+                                // Agrega más encabezados según las columnas que quieras mostrar
+                                echo '</tr>';
 
-        <!-- Puedes agregar -->
-					</div>
+                                while ($row = $resultado->fetch_assoc()) {
+                                    echo '<tr>';
+                                    echo '<td>' . $row['id_cita'] . '</td>';
+                                    echo '<td>' . $row['fecha'] . '</td>';
+                                    echo '<td>' . $row['hora'] . '</td>';
+                                    echo '<td>' . $row['nombre_p'] . '</td>';
+                                    // Agrega más celdas según las columnas que quieras mostrar
+                                    echo '</tr>';
+                                }
+
+                                echo '</table>';
+                            } else {
+                                echo 'No hay registros en la tabla "paciente".';
+                            }
+                            ?>                        
+                    </div>
+						</div>
                     <div>
+                        <br>
                     <a href="agendar_citas.php" class="btnL">AGENDAR CITAS</a>
                     </div>
                 </div>
