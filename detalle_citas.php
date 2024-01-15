@@ -13,7 +13,7 @@ if (!isset($_SESSION['usuario_id'])) {
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>VitaPlan | Historial Médico</title>
+        <title>VitaPlan | Consultas</title>
         <link rel="icon" href="img/LogoP.jpg" type="image/jpg" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -29,20 +29,23 @@ if (!isset($_SESSION['usuario_id'])) {
     </head>
     <body style="background-color: #FFFFFF">
         <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top">
-            <a class="navbar-brand" href="indexP.php"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
+            <a class="navbar-brand" href="indexN.php"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #FFFFFF">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="indexP.php">INICIO</a>
+                        <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contactoP.php">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2P.php">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="precio.php">MEMBRESÍA</a>
                     </li>
                 </ul>
                 <div class="col">
