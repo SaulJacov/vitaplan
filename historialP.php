@@ -64,6 +64,9 @@ if (!isset($_SESSION['usuario_id'])) {
         <center>
             <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">HISTORIAL MÉDICO</h1><br>
             <div class="contenedor-seccion">
+                <div class="columnaC">
+                    <img style="height: 12vw;" src="img/datosPaciente/im3.jpg">
+                </div>    
                 <div class="columna">
                     <div class="cuadro-con-texto dos">
                         <div class="columna-agenda">
@@ -76,6 +79,8 @@ if (!isset($_SESSION['usuario_id'])) {
 
                             if ($result->num_rows > 0) {
                             // Las credenciales son válidas
+
+
                             $row = $result->fetch_assoc();
                             // Guarda la información del usuario en la sesión
                             $_SESSION['usuario_id'] = $row['id_p'];
@@ -86,42 +91,49 @@ if (!isset($_SESSION['usuario_id'])) {
                             $_SESSION['usuario_telefono'] = $row['telefono'];
                             $_SESSION['usuario_curp'] = $row['curp'];
                             $_SESSION['usuario_contraseña'] = $row['contraseña'];
-
+                            echo '<table border="1">';
+                                echo '<tr>';
+                                echo '<th>ID</th>';
+                                echo '<td>' . $_SESSION['usuario_id'] . '</td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo '<th>Email</th>';
+                                echo '<td>' . $_SESSION['usuario_email'] . '</td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo '<th>Nombre</th>';
+                                echo '<td>' . $_SESSION['usuario_nombre'] . '</td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo '<th>Apellido Paterno</th>';
+                                echo '<td>' . $_SESSION['usuario_apellidoP'] . '</td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo '<th>Apellido Materno</th>';
+                                echo '<td>' . $_SESSION['usuario_apellidoM'] . '</td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo '<th>Teléfono</th>';
+                                echo '<td>' . $_SESSION['usuario_telefono'] . '</td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo '<th>CURP</th>';
+                                echo '<td>' . $_SESSION['usuario_curp'] . '</td>';
+                                echo '</tr>';
                             } else {
                             echo "Tu historial médico aún no está disponible.";
                             }
                             $conn->close();
-                            echo $_SESSION['usuario_id'];
-                            echo $_SESSION['usuario_email'];
+                            //echo $_SESSION['usuario_id'];
+                            //echo $_SESSION['usuario_email'];
                             ?>
                         </div>
+                        <BR> <BR>
                     </div>
-            <BR> <BR>
-                </div>
+                <BR> <BR>
                 </div>
             </div>
-            <br><br><br>
-            <div class="footer">
-                <img src="img/index/Logo2.png" id="logof">
-                <a href="https://www.instagram.com/" target="_blank" class="social_link" id="f1">
-                    <i class="bx bxl-instagram social_icon"></i>
-                </a>
-                <a href="https://es-la.facebook.com/" target="_blank" class="social_link">
-                    <i class="bx bxl-facebook-circle social_icon"></i>
-                </a>
-                <a href="https://twitter.com/?lang=es" target="_blank" class="social_link">
-                    <i class="bx bxl-twitter social_icon"></i>
-                </a>
-                <a href="https://www.tiktok.com/es/" target="_blank" class="social_link">
-                    <i class="bx bxl-tiktok social_icon"></i>
-                </a>
-                <br>
-                <center>
-                <h5>VitaPlan - Transformando la Nutrición y la Salud. © 2023 Todos los derechos reservados. <a href="aviso.html" class="linkf">Aviso de privacidad</a> | <a href="terminos.html" class="linkf">Términos de Servicio</a>  | <a href="contacto.html" class="linkf">Contáctanos</a></h5>
-                <br>
-            </center><br><br>
-        </div>
-        
+            <br><br><br><br><br><br>
         <script src="js/JQuery.js" type="text/javascript"></script>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>

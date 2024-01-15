@@ -626,3 +626,11 @@ h7{
     display: inline-block;
     font-size: 15px;
 }
+
+.columnaC {
+    flex: 1;
+}
+.columnaD {
+    flex: 1;
+    padding: 2%;
+}
