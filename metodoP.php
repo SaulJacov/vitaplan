@@ -39,10 +39,10 @@ if (!isset($_SESSION['usuario_id'])) {
                         <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="precio.php">MEMBRESÍA<span class="sr-only">(current)</span></a>

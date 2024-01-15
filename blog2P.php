@@ -1,21 +1,19 @@
 <?php
 // Inicia la sesión
 session_start();
+
 // Verifica si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
     // Si no está autenticado, redirige al formulario de inicio de sesión
-    header("Location: login.html");
+    header("Location: selec_login.html");
     exit();
 }
-    require 'conexion_database.php';
-$paciente = $_SESSION['usuario_nombre'];
-$email = $_SESSION['usuario_email'];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>VitaPlan | DatosPaciente</title>
+        <title>VitaPlan | Blog</title>
         <link rel="icon" href="img/LogoP.jpg" type="image/jpg" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -44,7 +42,7 @@ $email = $_SESSION['usuario_email'];
                         <a class="nav-link" href="contactoP.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2P.php">BLOG</a>
+                        <a class="nav-link" href="blog2P.php">BLOG<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <div class="col">
@@ -52,10 +50,10 @@ $email = $_SESSION['usuario_email'];
                 </div>
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="paciente.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $paciente?></a>
-                        </li>
-                        <li class="nav-item active">
+                    <li class="nav-item active">
+                          <a class="nav-link" href="paciente.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
+                        </li>    
+                    <li class="nav-item active">
                           <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
                         </li>
                     </ul>
@@ -63,37 +61,46 @@ $email = $_SESSION['usuario_email'];
             </div>
         </nav>
         
-        <center>
-            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">DATOS DE PACIENTE</h1><br>
+		<center>
+            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">BLOG</h1><br>
+            
             <div class="contenedor-seccion">
-				<div class="columna">
-					<br>
-					<img style="height: 12vw;" src="img/datosPaciente/im3.jpg"><BR><BR>
-				</div>
-				<div class="columna">
-                <div class="cuadro-con-texto uno">
-                        <p style="font-weight: bold;">DATOS DEL PACIENTE</p>
-                        <img style="height: 6vw;" src="img/index/sesion.jpg"><BR><BR>
-                        <p><?php echo $paciente ?></p>
-                        <p><?php echo $email ?></p>
-                    </div>
-                </div>
                 <div class="columna">
-                    <div class="cuadro-con-texto uno">
-                        <p style="font-weight: bold;">HISTORIAL MEDICO</p>
-                        <img style="height: 12vw;" src="img/datosPaciente/im1.png"><BR><BR>
-                        <a href="historialP.php" class="boton2">VISUALIZAR</a>
-                    </div>
-                </div>
-                <div class="columna">
+					<img style="height: 12vw;" src="img/blog2/im1.jpg">
                     <div class="cuadro-con-texto dos">
-                        <p style="font-weight: bold;">SEGUIMIENTO DE CONSULTAS</p>
-                        <img style="height: 12vw;" src="img/datosPaciente/im2.jpg"><BR><BR>
-                        <a href="seguimC.php" class="boton2">VISUALIZAR</a>
+                        <p style="font-weight: bold;">Alimentos saludables</p>
+                        <p style="font-size: 17px;"> Comer de manera saludable es fundamental para mantener un estilo de vida equilibrado. Incluye variedad de frutas, verduras, granos enteros y proteínas magras en tu dieta diaria. Recuerda beber suficiente agua y moderar el consumo de azúcares y grasas. ¡Tu cuerpo te lo agradecerá! </p>                      
+                    </div>
+                </div>               
+				<div class="columna">
+					<img style="height: 12vw;" src="img/blog2/im2.jpg"> 
+                    <div class="cuadro-con-texto dos">
+                        <p style="font-weight: bold;">Informate</p>
+                        <p style="font-size: 17px;"> Recuerda que una dieta balanceada es clave para tu bienestar. Prioriza alimentos frescos, limita los ultraprocesados y disfruta de comidas coloridas y nutritivas. Tu cuerpo y mente se beneficiarán con hábitos alimenticios saludables. ¡Adelante hacia un estilo de vida más saludable!</p>                                          
+                    </div>                       
+                </div>
+				<div class="columna">
+                    <div class="cuadro-con-texto uno">
+                        <p style="font-weight: bold;">Dudas generales</p>
+						<p style="font-size: 17px;">
+						
+						Pregunta 1     
+						<br> 
+						¿Cuál es su enfoque respecto a dietas vegetarianas o veganas?
+						<br> <br>
+						Pregunta 2    
+						<br>
+						¿Qué servicios ofrecen?
+						<br> <br>
+						Pregunta 3   
+						<br>
+						¿Cómo manejar las alergias alimentarias o intolerancias? </p> 
+						<br> <br>
+
+                                      
                     </div>                       
                 </div>
             </div>
-			<br>
             <div class="footer">
                 <img src="img/index/Logo2.png" id="logof">
                 <a href="https://www.instagram.com/" target="_blank" class="social_link" id="f1">

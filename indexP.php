@@ -29,20 +29,20 @@ if (!isset($_SESSION['usuario_id'])) {
     </head>
     <body style="background-color: #FFFFFF">
         <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top">
-            <a class="navbar-brand" href="index.html"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
+            <a class="navbar-brand" href="indexP.php"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #FFFFFF">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="indexN.html">INICIO</a>
+                        <a class="nav-link" href="indexP.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoP.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2P.php">BLOG</a>
                     </li>
                 </ul>
                 <div class="col">
@@ -91,11 +91,8 @@ if (!isset($_SESSION['usuario_id'])) {
                     tecnología se encuentra con la salud, y cada elección
                     alimentaria es un paso hacia el bienestar total."</h6><br>
                     <div class="contenedor-seccion">
-                        <div class="columna columna-izquierda">
-                            <a href="registro.html" class="boton">REGISTRARSE</a>
-                        </div>
                         <div class="columna columna-derecha">
-                            <a href="conoce.html" class="boton">CONOCE MÁS</a>
+                            <a href="conoceP.php" class="boton">CONOCE MÁS</a>
                         </div> 
                     </div>               
                 </div>

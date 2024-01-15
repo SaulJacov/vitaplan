@@ -39,10 +39,10 @@ if (!isset($_SESSION['usuario_id'])) {
                         <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="precio.php">MEMBRESÍA<span class="sr-only">(current)</span></a>
@@ -65,17 +65,9 @@ if (!isset($_SESSION['usuario_id'])) {
         </nav>
         
         <center>
-            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">MEMBRESIA</h1><br>
+            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">MEMBRESÍA</h1><br>
             <h6 style="color: black; font-size: 25px;">¡Obtén acceso completo a todas las funciones para cuidar a tus pacientes!</h6>
             <div class="contenedor-seccion">
-                <div class="columna">
-                    <div class="cuadro-con-texto uno">
-                        <p>VitaPlan Gratis</p>
-                        <p style="font-weight: bold;">GRATIS</p>
-                        <img style="height: 12vw;" src="img/precio/1.png">
-                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
-                    </div>
-                </div>
                 <div class="columna">
                     <div class="cuadro-con-texto dos">
                         <p>VitaPlan Estandar</p>
@@ -93,13 +85,14 @@ if (!isset($_SESSION['usuario_id'])) {
                     </div>                       
                 </div>
             </div>
-            <div class="contenedor">
+            
+            <div class="cuadro-con-texto dos">
                 <table>
                     <tr>
                         <th>Beneficios</th>
-                        <th>Gratis</th>
-                        <th>Estandar</th>
-                        <th>Premium</th>
+                        <th>|Gratis</th>
+                        <th>|Estandar</th>
+                        <th>|Premium</th>
                     </tr>
                     <tr>
                         <td>Alta/Baja de Pacientes</td>
