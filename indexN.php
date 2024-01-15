@@ -39,10 +39,10 @@ if (!isset($_SESSION['usuario_id'])) {
                         <a class="nav-link" href="indexN.php">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">CONTACTO</a>
+                        <a class="nav-link" href="contactoN.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog2.html">BLOG</a>
+                        <a class="nav-link" href="blog2N.php">BLOG</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="precio.php">MEMBRESÍA</a>
@@ -94,11 +94,8 @@ if (!isset($_SESSION['usuario_id'])) {
                     tecnología se encuentra con la salud, y cada elección
                     alimentaria es un paso hacia el bienestar total."</h6><br>
                     <div class="contenedor-seccion">
-                        <div class="columna columna-izquierda">
-                            <a href="registro.html" class="boton">REGISTRARSE</a>
-                        </div>
                         <div class="columna columna-derecha">
-                            <a href="conoce.html" class="boton">CONOCE MÁS</a>
+                            <a href="conoceN.php" class="boton">CONOCE MÁS</a>
                         </div> 
                     </div>               
                 </div>
