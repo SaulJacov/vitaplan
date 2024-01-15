@@ -39,9 +39,6 @@ $nutriologo = $_SESSION['usuario_nombre'];
                         <a class="nav-link" href="index.html">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="precio.html">PRECIO</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="contacto.html">CONTACTO</a>
                     </li>
                     <li class="nav-item">
