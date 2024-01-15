@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     // Guarda la información del usuario en la sesión
-    $_SESSION['usuario_id'] = $row['id'];
+    $_SESSION['usuario_id'] = $row['id_p'];
     $_SESSION['usuario_email'] = $row['email'];
     $_SESSION['usuario_nombre'] = $row['nombre'];
 
