@@ -86,7 +86,7 @@ $nutriologo = $_SESSION['usuario_nombre'];
 					<br>
 					<label for="nutriologo" style="color: black; font-size: 20px">Nutriólogo</label>
 					<span style="margin-right: 45%;" class="required">*</span>
-					<input type="text" id="nutriologo" name="nutriologo" required placeholder="Escribe el nombre del nutriologo">
+					<input type="text" id="nutriologo" name="nutriologo" value="<?php echo $_SESSION['usuario_nombre'] ?>">
 					<br>
 				
 					<button type="submit" class="boton" onclick="paciente()">REGISTRAR</button><br><br>

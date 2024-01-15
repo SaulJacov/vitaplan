@@ -133,11 +133,15 @@ $nutriologo = $_SESSION['usuario_nombre'];
 
                                 echo '</table>';
                             } else {
-                                echo 'No hay registros en la tabla "paciente".';
+                                echo 'aun no tiene citas agendadas.';
                             }
                             ?>                        
                     </div>
 						</div>
+                    <div>
+                        <br>
+                    <a href="detalle_citas.php" class="btnL">VER TODAS LAS CITAS</a>
+                    </div>
                     <div>
                         <br>
                     <a href="agendar_citas.php" class="btnL">AGENDAR CITAS</a>

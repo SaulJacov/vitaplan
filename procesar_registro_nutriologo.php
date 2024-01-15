@@ -66,7 +66,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 //link que envia a pagina de principal de VitaPlan
-header("Location: index.php");
+header("Location: index.html");
 die();
 
 /*
