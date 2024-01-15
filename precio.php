@@ -1,21 +1,19 @@
 <?php
 // Inicia la sesión
 session_start();
+
 // Verifica si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
     // Si no está autenticado, redirige al formulario de inicio de sesión
-    header("Location: login.html");
+    header("Location: selec_login.html");
     exit();
 }
-    require 'conexion_database.php';
-$nutriologo = $_SESSION['usuario_nombre'];
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>VitaPlan | Nutriólogo</title>
+        <title>VitaPlan | Precio</title>
         <link rel="icon" href="img/LogoP.jpg" type="image/jpg" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -47,7 +45,7 @@ $nutriologo = $_SESSION['usuario_nombre'];
                         <a class="nav-link" href="blog2.html">BLOG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="precio.php">MEMBRESÍA</a>
+                        <a class="nav-link" href="precio.php">MEMBRESÍA<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <div class="col">
@@ -55,10 +53,10 @@ $nutriologo = $_SESSION['usuario_nombre'];
                 </div>
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
-                    <li class="nav-item active">
-                          <a class="nav-link" href="usuario.html"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
-                        </li>    
-                    <li class="nav-item active">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="nutriologo.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
+                        </li>
+                        <li class="nav-item active">
                           <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
                         </li>
                     </ul>
@@ -67,68 +65,80 @@ $nutriologo = $_SESSION['usuario_nombre'];
         </nav>
         
         <center>
-            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">NUTRIÓLOGO</h1><br>
+            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">MEMBRESIA</h1><br>
+            <h6 style="color: black; font-size: 25px;">¡Obtén acceso completo a todas las funciones para cuidar a tus pacientes!</h6>
             <div class="contenedor-seccion">
                 <div class="columna">
-					<h1>Pacientes</h1><br>
-                    <div class="cuadro-con-texto dos">
-						<div class="columna-agenda">
-                            <?php
-                            $consulta = "SELECT * FROM $nutriologo";
-                            $resultado = $conn->query($consulta);
-                            if ($resultado->num_rows > 0) {
-                                echo '<table border="1">';
-                                echo '<tr>';
-                                echo '<th>Nombre</th>';
-                                echo '<th>CURP</th>';
-                                echo '<th>ID paciente</th>';
-                                // Agrega más encabezados según las columnas que quieras mostrar
-                                echo '</tr>';
-
-                                while ($row = $resultado->fetch_assoc()) {
-                                    echo '<tr>';
-                                    echo '<td>' . $row['nombre'] . '</td>';
-                                    echo '<td>' . $row['curp'] . '</td>';
-                                    echo '<td>' . $row['ID_paciente'] . '</td>';
-                                    // Agrega más celdas según las columnas que quieras mostrar
-                                    echo '</tr>';
-                                }
-
-                                echo '</table>';
-                            } else {
-                                echo 'No hay registros en la tabla "paciente".';
-                            }
-                            ?>
-						</div>
+                    <div class="cuadro-con-texto uno">
+                        <p>VitaPlan Gratis</p>
+                        <p style="font-weight: bold;">GRATIS</p>
+                        <img style="height: 12vw;" src="img/precio/1.png">
+                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
                     </div>
-			<BR> <BR>
-					<a href="RegistroPN.php" class="btnL">REGISTRAR PACIENTE</a>
                 </div>
                 <div class="columna">
-					<h1>Agenda</h1><br>
-                    <div class="contenedor-agenda">
-						<div class="evento">
-							<div class="fecha">2024-01-10</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-
-        <!-- Puedes agregar -->
-					</div>
+                    <div class="cuadro-con-texto dos">
+                        <p>VitaPlan Estandar</p>
+                        <p style="font-weight: bold;">$100.00 MXN/mes</p>
+                        <img style="height: 12vw;" src="img/precio/2.png">
+                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
+                    </div>                       
+                </div>
+                <div class="columna">
+                    <div class="cuadro-con-texto tres">
+                        <p>VitaPlan Premium</p>
+                        <p style="font-weight: bold;">$200.00 MXN/mes</p>
+                        <img style="height: 12vw;" src="img/precio/3.png">
+                        <a href="metodoP.php" class="boton2">CONTRATAR</a>
+                    </div>                       
                 </div>
             </div>
-			<br><br><br>
+            <div class="contenedor">
+                <table>
+                    <tr>
+                        <th>Beneficios</th>
+                        <th>Gratis</th>
+                        <th>Estandar</th>
+                        <th>Premium</th>
+                    </tr>
+                    <tr>
+                        <td>Alta/Baja de Pacientes</td>
+                        <td><img src="img/Palomita.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                    </tr>
+                    <tr>
+                        <td>Altas Máximas</td>
+                        <td>5</td>
+                        <td>30</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Almacenamiento en la Nube</td>
+                        <td><img src="img/Tache.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                    </tr>
+                    <tr>
+                        <td>Espacio en la Nube</td>
+                        <td>0 GB</td>
+                        <td>10 GB</td>
+                        <td>50 GB</td>
+                    </tr>
+                    <tr>
+                        <td>Historial Medico</td>
+                        <td><img src="img/Tache.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                    </tr>
+                    <tr>
+                        <td>Seguimiento Consultas</td>
+                        <td><img src="img/Tache.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                        <td><img src="img/Palomita.png"></td>
+                    </tr>
+                </table>
+            </div>
             <div class="footer">
                 <img src="img/index/Logo2.png" id="logof">
                 <a href="https://www.instagram.com/" target="_blank" class="social_link" id="f1">

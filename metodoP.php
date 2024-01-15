@@ -1,21 +1,19 @@
 <?php
 // Inicia la sesión
 session_start();
+
 // Verifica si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
     // Si no está autenticado, redirige al formulario de inicio de sesión
-    header("Location: login.html");
+    header("Location: selec_login.html");
     exit();
 }
-    require 'conexion_database.php';
-$nutriologo = $_SESSION['usuario_nombre'];
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>VitaPlan | Nutriólogo</title>
+        <title>VitaPlan | Membresía</title>
         <link rel="icon" href="img/LogoP.jpg" type="image/jpg" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -31,14 +29,14 @@ $nutriologo = $_SESSION['usuario_nombre'];
     </head>
     <body style="background-color: #FFFFFF">
         <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top">
-            <a class="navbar-brand" href="indexN.php"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
+            <a class="navbar-brand" href="index.html"><img src="img/Logo.jpg" class="hover" style="height: 80px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #FFFFFF">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarHover">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="indexN.php">INICIO</a>
+                        <a class="nav-link" href="index.html">INICIO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contacto.html">CONTACTO</a>
@@ -47,7 +45,7 @@ $nutriologo = $_SESSION['usuario_nombre'];
                         <a class="nav-link" href="blog2.html">BLOG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="precio.php">MEMBRESÍA</a>
+                        <a class="nav-link" href="precio.php">MEMBRESÍA<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <div class="col">
@@ -55,10 +53,10 @@ $nutriologo = $_SESSION['usuario_nombre'];
                 </div>
                 <span>
                     <ul class="navbar-nav my-2 my-lg-0">
-                    <li class="nav-item active">
-                          <a class="nav-link" href="usuario.html"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
-                        </li>    
-                    <li class="nav-item active">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="nutriologo.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;"><?php echo $_SESSION['usuario_nombre'] ?></a>
+                        </li>
+                        <li class="nav-item active">
                           <a class="nav-link" href="cerrar_sesion.php"><img src="img/index/sesion.jpg" class="hover" style="height: 25px; width: 25px; margin-right: .5vw; text-align:center;">cerrar sesion</a>
                         </li>
                     </ul>
@@ -67,68 +65,64 @@ $nutriologo = $_SESSION['usuario_nombre'];
         </nav>
         
         <center>
-            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">NUTRIÓLOGO</h1><br>
+            <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">MÉTODO DE PAGO</h1><br>
+            <h6 style="color: black; font-size: 25px;">Seleccione su método de pago</h6>
             <div class="contenedor-seccion">
                 <div class="columna">
-					<h1>Pacientes</h1><br>
-                    <div class="cuadro-con-texto dos">
-						<div class="columna-agenda">
-                            <?php
-                            $consulta = "SELECT * FROM $nutriologo";
-                            $resultado = $conn->query($consulta);
-                            if ($resultado->num_rows > 0) {
-                                echo '<table border="1">';
-                                echo '<tr>';
-                                echo '<th>Nombre</th>';
-                                echo '<th>CURP</th>';
-                                echo '<th>ID paciente</th>';
-                                // Agrega más encabezados según las columnas que quieras mostrar
-                                echo '</tr>';
-
-                                while ($row = $resultado->fetch_assoc()) {
-                                    echo '<tr>';
-                                    echo '<td>' . $row['nombre'] . '</td>';
-                                    echo '<td>' . $row['curp'] . '</td>';
-                                    echo '<td>' . $row['ID_paciente'] . '</td>';
-                                    // Agrega más celdas según las columnas que quieras mostrar
-                                    echo '</tr>';
-                                }
-
-                                echo '</table>';
-                            } else {
-                                echo 'No hay registros en la tabla "paciente".';
-                            }
-                            ?>
-						</div>
+                    <div class="cuadro-con-texto uno">
+						<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Todos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            TIPO DE MEMBRESÍA
+                        </a>
+                        <ul class="dropdown-menu bg-light" style="font-size: 10px" id="navbarHover">
+                            <li><a class="dropdown-item nav-link" href="propiedades.html">VitaPlan Estándar<bold>&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+                            <li><a class="dropdown-item nav-link" href="cotizacion.html">VitaPlan Premium<bold>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+                        </ul>
+                    </li>
+					<img style="height: 12vw;" src="img/precio/1.png">
                     </div>
-			<BR> <BR>
-					<a href="RegistroPN.php" class="btnL">REGISTRAR PACIENTE</a>
                 </div>
                 <div class="columna">
-					<h1>Agenda</h1><br>
-                    <div class="contenedor-agenda">
-						<div class="evento">
-							<div class="fecha">2024-01-10</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-						<div class="evento">
-							<div class="fecha">2024-01-15</div>
-							<div class="descripcion">Cita a las 3:30 PM</div>
-						</div>
-
-        <!-- Puedes agregar -->
-					</div>
+                    <div class="cuadro-con-texto dos">
+					<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Todos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            TIPO DE PAGO
+                        </a>
+                        <ul class="dropdown-menu bg-light" style="font-size: 10px" id="navbarHover">
+                            <li><a class="dropdown-item nav-link" href="propiedades.html">Mensual<bold>&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+                            <li><a class="dropdown-item nav-link" href="cotizacion.html">Anual<bold>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+                        </ul>
+                    </li>
+					<img style="height: 12vw;" src="img/precio/2.png">
+                    </div>                       
+                </div>
+                <div class="columna">
+                    <div class="cuadro-con-texto tres">
+					
+					<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Todos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MÉTODO DE PAGO
+                        </a>
+                        <ul class="dropdown-menu bg-light" style="font-size: 10px" id="navbarHover">
+                            <li><a class="dropdown-item nav-link" href="propiedades.html">Paypal<bold>&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+                            <li><a class="dropdown-item nav-link" href="cotizacion.html">Tarjeta de crédito<bold>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+							 <li><a class="dropdown-item nav-link" href="propiedades.html">Tarjeta de débito<bold>&nbsp;&nbsp;&nbsp;&nbsp;></bold></a>
+                            </li>
+                        </ul>
+                    </li>
+					<img style="height: 12vw;" src="img/precio/3.png">
+                    </div>           
+					<BR> 
+                        <a href="pago.html" class="btnL">PAGAR</a>
+				<br>
                 </div>
             </div>
-			<br><br><br>
             <div class="footer">
                 <img src="img/index/Logo2.png" id="logof">
                 <a href="https://www.instagram.com/" target="_blank" class="social_link" id="f1">
