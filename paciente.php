@@ -71,13 +71,13 @@ $email = $_SESSION['usuario_email'];
 					<img style="height: 12vw;" src="img/datosPaciente/im3.jpg"><BR><BR>
 				</div>
 				<div class="columna">
-					<form>
-						<label for="ema" style="color: black; font-size: 20px"><?php echo $email ?></label>
-						<br>
-						<label for="nombre2" style="color: black; font-size: 20px"><?php echo $paciente ?></label>
-						<br>
-						</form>
-				</div>
+                <div class="cuadro-con-texto uno">
+                        <p style="font-weight: bold;">DATOS DEL PACIENTE</p>
+                        <img style="height: 6vw;" src="img/index/sesion.jpg"><BR><BR>
+                        <p><?php echo $paciente ?></p>
+                        <p><?php echo $email ?></p>
+                    </div>
+                </div>
                 <div class="columna">
                     <div class="cuadro-con-texto uno">
                         <p style="font-weight: bold;">HISTORIAL MEDICO</p>
