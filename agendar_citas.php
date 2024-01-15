@@ -4,7 +4,7 @@ session_start();
 // Verifica si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
     // Si no está autenticado, redirige al formulario de inicio de sesión
-    header("Location: login.html");
+    header("Location: selec_login.html");
     exit();
 }
     require 'conexion_database.php';
@@ -70,53 +70,51 @@ $nutriologo = $_SESSION['usuario_nombre'];
             <h1 style="font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 7%;">AGENDAR CITAS</h1><br>
             <div class="contenedor-seccion">
 			<div class="columna columna-izquierda">
-                <form action="procesar_registro_nutriologo.php" method="post">
-					<label for="ema" style="color: black; font-size: 20px">Email</label>
-					<span id="sp" class="required">*</span>
-					<input type="text" id="ema" name="email" required placeholder="Escribe tu email">
+                <form action="procesar_cita.php" method="post">
+					<label for="usu" style="color: black; font-size: 20px">PACIENTE</label>
+					<span style="margin-right: 50%;" class="required">*</span>
+					<input type="text" id="usu" name="paciente" placeholder="nombre del paciente">
 					<br>
-					<label for="nombre2" style="color: black; font-size: 20px">Nombre(s)</label>
-					<span style="margin-right: 45%;" class="required">*</span>
-					<input type="text" id="nombre2" name="nombre" required placeholder="Escribe tu(s) nombre(s)">
-					<br>
-					<label for="apP" style="color: black; font-size: 20px">Apellido Paterno</label>
+					<label for="apM" style="color: black; font-size: 20px">Apellido Paterno</label>
 					<span style="margin-right: 35%;" class="required">*</span>
-					<input type="text" id="apP" name="apellidoP" required placeholder="Escribe tu apellido paterno">
+					<input type="text" id="apM" name="apellidoP" required placeholder="apellido paterno">
 					<br>
-					<label for="apM" style="color: black; font-size: 20px">Apellido Materno</label>
+                    <label for="apM" style="color: black; font-size: 20px">Apellido Materno</label>
 					<span style="margin-right: 35%;" class="required">*</span>
-					<input type="text" id="apM" name="apellidoM" required placeholder="Escribe tu apellido materno">
+					<input type="text" id="apM" name="apellidoM" required placeholder="apellido materno">
 					<br>
-					<label for="tel" style="color: black; font-size: 20px">Teléfono celular</label>
+                    <label for="apP" style="color: black; font-size: 20px">CURP PACIENTE</label>
 					<span style="margin-right: 35%;" class="required">*</span>
-					<input type="text" id="tel" name="telefono" required placeholder="Escribe tu teléfono celular">
+					<input type="text" id="apP" name="curp" required placeholder="CURP del paciente">
 					<br>
-					<label for="espe" style="color: black; font-size: 20px">Especialidad</label>
-					<span style="margin-right: 40%;" class="required">*</span>
-					<input type="text" id="espe" name="especialidad" required placeholder="Escribe tu especialidad">
+					<label for="tel" style="color: black; font-size: 20px">EMAIL DEL PACIENTE</label>
+					<span style="margin-right: 35%;" class="required">*</span>
+					<input type="email" id="tel" name="email" required placeholder="Email del paciente">
+					<br>
+					
 			</div>
 			<div class="columna columna-derecha">
-				
-					<label for="num" style="color: black; font-size: 20px">Número de identificación</label>
-					<span style="margin-right: 25%;" class="required">*</span>
-					<input type="text" id="num" name="numeroIdentificacion" required placeholder="Escribe tu numero de identificación">
+                    <label for="ema" style="color: black; font-size: 20px">FECHA</label>
+					<span id="sp" class="required">*</span>
+					<input type="date" id="ema" name="fecha" required placeholder="Escribe tu email">
 					<br>
-					<label style="color: black; font-size: 20px">Horario</label>	
-					<span style="margin-right: 50%;" class="required">*</span><br>
+    
+                    <label for="nombre2" style="color: black; font-size: 20px">HORA</label>
+					<span style="margin-right: 45%;" class="required">*</span>
+					<input type="time" id="nombre2" name="hora" required placeholder="Escribe tu(s) nombre(s)">
 					<br>
-					<label for="usu" style="color: black; font-size: 20px">Usuario</label>
+					
+					
+                    <label for="usu" style="color: black; font-size: 20px">NUTRIOLOGO</label>
 					<span style="margin-right: 50%;" class="required">*</span>
-					<input type="text" id="usu" name="usuario" required placeholder="Escribe tu nombre de usuario">
+					<input type="text" id="usu" name="nutriologo" value="<?php echo $nutriologo ?>" readonly>
 					<br>
 					<label for="cont" style="color: black; font-size: 20px">Contraseña</label>
 					<span style="margin-right: 45%;" class="required">*</span>
 					<input type="text" id="cont" name="contraseña" required placeholder="Escribe tu contraseña">
 					<br>
-					<label for="cont2" style="color: black; font-size: 20px">Confirmar Cotraseña</label>
-					<span style="margin-right: 30%;" class="required">*</span>
-					<input type="text" id="cont2" name="contraseña2" required placeholder="Escribe tu contraseña">
-					<br>
-					<button type="submit" class="boton" onclick="captura()">REGISTRARSE</button><br><br>
+					
+					<button type="submit" class="boton" onclick="captura()">AGREGAR CITA</button><br><br>
 					<label id="aste">*</label><label id="in" style="color: black; font-size: 15px"> los campos son obligatorios</label>
 				</form>
 			</div>
